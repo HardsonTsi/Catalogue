@@ -1,0 +1,7 @@
+{
+  "ast": null,
+  "code": "import { HttpClient } from \"@angular/common/http\";\nimport * as i0 from \"@angular/core\";\nimport * as i1 from \"@angular/common/http\";\nexport let ContactsService = /*#__PURE__*/(() => {\n  class ContactsService {\n    constructor(http) {\n      this.http = http; // url: string = 'http://localhost:8080/contacts/';\n\n      this.url = 'http://springboottestapp-env.eba-vdthvyfu.us-east-2.elasticbeanstalk.com/contacts/';\n    }\n\n    getContacts() {\n      return this.http.get(this.url);\n    }\n\n    searchContacts(prenoms) {\n      return this.http.get(this.url + 'search?prenoms=' + prenoms);\n    }\n\n    selectContact(id) {\n      return this.http.get(this.url + id);\n    }\n\n    deleteContact(id) {\n      return this.http.delete(this.url + 'delete/' + id);\n    }\n\n    addContact(contact) {\n      return this.http.post(this.url + 'add', contact);\n    }\n\n    editContact(contact) {\n      return this.http.put(this.url + 'update', contact);\n    }\n\n  }\n\n  ContactsService.ɵfac = function ContactsService_Factory(t) {\n    return new (t || ContactsService)(i0.ɵɵinject(i1.HttpClient));\n  };\n\n  ContactsService.ɵprov = /*@__PURE__*/i0.ɵɵdefineInjectable({\n    token: ContactsService,\n    factory: ContactsService.ɵfac,\n    providedIn: 'root'\n  });\n  return ContactsService;\n})();",
+  "map": null,
+  "metadata": {},
+  "sourceType": "module"
+}

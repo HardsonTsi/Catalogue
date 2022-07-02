@@ -1,0 +1,7 @@
+{
+  "ast": null,
+  "code": "import { Contact } from \"../contact\";\nimport * as i0 from \"@angular/core\";\nimport * as i1 from \"../contact-form/contact-form.component\";\nexport let AddContactComponent = /*#__PURE__*/(() => {\n  class AddContactComponent {\n    constructor() {\n      this.contact = null;\n    }\n\n    ngOnInit() {\n      this.contact = new Contact();\n    }\n\n  }\n\n  AddContactComponent.ɵfac = function AddContactComponent_Factory(t) {\n    return new (t || AddContactComponent)();\n  };\n\n  AddContactComponent.ɵcmp = /*@__PURE__*/i0.ɵɵdefineComponent({\n    type: AddContactComponent,\n    selectors: [[\"add-contact\"]],\n    decls: 3,\n    vars: 1,\n    consts: [[1, \"header\", \"center\"], [3, \"contact\"]],\n    template: function AddContactComponent_Template(rf, ctx) {\n      if (rf & 1) {\n        i0.ɵɵelementStart(0, \"h2\", 0);\n        i0.ɵɵtext(1, \"Ajouter un contact\");\n        i0.ɵɵelementEnd();\n        i0.ɵɵelement(2, \"contact-form\", 1);\n      }\n\n      if (rf & 2) {\n        i0.ɵɵadvance(2);\n        i0.ɵɵproperty(\"contact\", ctx.contact);\n      }\n    },\n    directives: [i1.ContactFormComponent],\n    styles: [\"\"]\n  });\n  return AddContactComponent;\n})();",
+  "map": null,
+  "metadata": {},
+  "sourceType": "module"
+}

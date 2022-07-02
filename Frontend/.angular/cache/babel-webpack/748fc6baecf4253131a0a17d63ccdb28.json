@@ -1,0 +1,7 @@
+{
+  "ast": null,
+  "code": "import { HttpClient } from \"@angular/common/http\";\nimport * as i0 from \"@angular/core\";\nimport * as i1 from \"@angular/common/http\";\nexport let ContactsService = /*#__PURE__*/(() => {\n  class ContactsService {\n    constructor(http) {\n      this.http = http;\n      this.url = 'http://localhost:8080/';\n    }\n\n    getContacts(motCle) {\n      return this.http.get(this.url + '/searchName?' + 'mc=' + motCle);\n    }\n\n    selectContact(id) {\n      return this.http.get(this.url + 'contacts/' + id);\n    }\n\n    deleteContact(id) {\n      let confirmation = confirm(\"Voulez-vous vraiment supprimer ce contact ?\");\n\n      if (confirmation) {\n        return this.http.delete(this.url + 'delete/' + id);\n      }\n    }\n\n    addContact(contact) {\n      return this.http.post(this.url + 'contacts/add', contact);\n    }\n\n    editContact(contact) {\n      return this.http.put(this.url + 'contacts/update/' + contact.id, contact);\n    }\n\n  }\n\n  ContactsService.ɵfac = function ContactsService_Factory(t) {\n    return new (t || ContactsService)(i0.ɵɵinject(i1.HttpClient));\n  };\n\n  ContactsService.ɵprov = /*@__PURE__*/i0.ɵɵdefineInjectable({\n    token: ContactsService,\n    factory: ContactsService.ɵfac,\n    providedIn: 'root'\n  });\n  return ContactsService;\n})();",
+  "map": null,
+  "metadata": {},
+  "sourceType": "module"
+}

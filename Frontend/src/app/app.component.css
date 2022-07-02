@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 0 10px whitesmoke;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  flex-flow: row nowrap;
+}
+
+header .logo {
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+  padding: 10px 15px;
+  color: rgb(26, 115, 232);
+  border-radius: 3px;
+}
+
+header a:hover {
+  background: rgb(210, 227, 252);
+  transition: background 1s;
+}
+
+.active {
+  background: rgb(210, 227, 252);
+}

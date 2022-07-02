@@ -1,0 +1,75 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" *ngIf="contact">
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <div class="card-panel">
+
+        <!-- Contact nom -->
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input #nom="ngModel" [(ngModel)]="contact.nom" class="form-control" id="nom" name="nom" required type="text">
+
+          <div [hidden]="nom.valid || nom.pristine" class="card-panel red accent-1">
+            Le nom du contact est requis.
+          </div>
+        </div>
+
+        <!-- Contact prenoms -->
+        <div class="form-group">
+          <label for="prenoms">Prenoms</label>
+          <input #prenoms="ngModel" [(ngModel)]="contact.prenoms" class="form-control" id="prenoms" name="prenoms"
+                 required type="text">
+
+          <div [hidden]="prenoms.valid || prenoms.pristine" class="card-panel red accent-1">
+            Prénoms requis.
+          </div>
+        </div>
+
+        <!-- Contact prenoms -->
+        <div class="form-group">
+          <label for="prenoms">Date de naissance</label>
+          <input [(ngModel)]="contact.dateNaissance" class="form-control" id="date" name="date" type="date">
+
+        </div>
+
+
+        <!-- Pokemon email -->
+        <div class="form-group">
+          <label for="email">EMail</label>
+          <input #email="ngModel" [(ngModel)]="contact.email" class="form-control" id="email" name="email" required
+                 type="text">
+
+          <div [hidden]="email.valid || email.pristine" class="card-panel red accent-1">
+            L'adresse email est necessaire.
+          </div>
+        </div>
+
+        <!-- Contact cp -->
+        <div class="form-group">
+          <label for="telephone">Telephone</label>
+          <input #telephone="ngModel" [(ngModel)]="contact.telephone" class="form-control" id="telephone"
+                 name="telephone" pattern="^[0-9]{8,15}$" required type="number">
+          <div [hidden]="telephone.valid || telephone.pristine" class="card-panel red accent-1">
+            Le numéro de telephone doit contenir au moins 8 chiffres.
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="divider"></div>
+        <div class="section center">
+          <button [disabled]="!contactForm.form.valid" class="waves-effect waves-light btn" type="submit">
+            Valider <p (click)="goDetail()"></p>
+          </button>
+        </div>
+
+        <div class="card-action center">
+          <a (click)="goBack()" class="waves-effects blue lighten-1 btn waves-light btn">Annuler</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
+
+<h3 *ngIf="!contact" class="center">
+  <loader></loader>
+</h3>

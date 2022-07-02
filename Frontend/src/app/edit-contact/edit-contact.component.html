@@ -1,0 +1,6 @@
+<h2 class="header center">Editer {{ contact?.nom }}</h2>
+<p class="center">
+  <img *ngIf="contact" class="circle"
+       src="https://ui-avatars.com/api/?name={{this.contact.nom}}rounded=true&background=random"/>
+</p>
+<contact-form [contact]="contact"></contact-form>

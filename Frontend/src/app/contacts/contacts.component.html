@@ -1,0 +1,30 @@
+<div class="row container">
+  <div class="col s12 m6 offset-m3">
+    <div class="card">
+      <div class="card-content">
+        <div class="input-field">
+          <input (keyup)="doSearch()" [(ngModel)]="prenoms" placeholder="Rechercher un contact" type="text"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div *ngIf="contacts" class="container enfant ">
+    <ul (click)="selectContact(contact)" *ngFor="let contact of contacts" class="collection hoverable bord">
+      <li class="collection-item avatar">
+        <img alt="" class="circle" src="https://ui-avatars.com/api/?name={{contact.nom}}rounded=true&background=random">
+        <span class="title">{{contact.nom}} {{contact.prenoms}}</span>
+        <p> {{contact.dateNaissance | date: 'medium'}} </p> <br>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<h4 *ngIf="!contacts" class="center">
+  <loader></loader>
+</h4>
+
+

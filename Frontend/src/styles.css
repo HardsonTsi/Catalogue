@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Pour centrer les choses */
+.parent {
+  display: grid;
+  height: 28vh;
+}
+
+.enfant {
+  margin: auto;
+}
+
+/* */

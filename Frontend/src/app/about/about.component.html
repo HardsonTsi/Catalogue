@@ -1,0 +1,54 @@
+<div class="parent row">
+
+  <div *ngIf="contact" class="enfant container">
+
+    <div class="responsive-img center space-bottom">
+      <img class="circle" src="https://ui-avatars.com/api/?name={{this.contact.nom}}rounded=true&background=random">
+    </div>
+
+    <div class="col s12 m8 offset-m2">
+      <div class="card horizontal hoverable">
+        <div class="card-stacked">
+          <div class="card-content">
+            <table class="bordered striped">
+              <tbody>
+              <tr>
+                <td>Nom</td>
+                <td><strong>{{ contact.nom }}</strong></td>
+              </tr>
+              <tr>
+                <td>Prenoms</td>
+                <td><strong>{{ contact.prenoms }}</strong></td>
+              </tr>
+              <tr>
+                <td>Date de naissance</td>
+                <td><em>{{ contact.dateNaissance | date: "medium"  }}</em></td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td><strong>{{ contact.email }}</strong></td>
+              </tr>
+              </tbody>
+              <tr>
+                <td>Telephone</td>
+                <td><strong>{{ contact.telephone }}</strong></td>
+              </tr>
+
+            </table>
+          </div>
+          <div class="card-action">
+            <a (click)="goBack()" class="waves-effects blue lighten-1 btn waves-light btn">Retour</a>
+            <a (click)="goEdit()" class="waves-effects blue lighten-1 waves-light btn">Editer</a>
+            <a (click)="deleteContact()" class="red accent-2 btn right">Supprimer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<h4 *ngIf="!contact" class="center">
+  <loader></loader>
+</h4>
+
+
