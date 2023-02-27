@@ -8,5 +8,5 @@ import java.util.List;
 
 @CrossOrigin("*")
 public interface ContactRepository extends JpaRepository<Contact, Long> {
-    List<Contact> findByPrenomsLike(String Prenoms);
+    List<Contact> findByPrenomsLikeOrNomLike(String Prenoms, String nom);
 }

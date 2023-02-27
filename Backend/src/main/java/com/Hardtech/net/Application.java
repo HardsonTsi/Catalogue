@@ -2,27 +2,27 @@ package com.Hardtech.net;
 
 import com.Hardtech.net.entities.Contact;
 import com.Hardtech.net.repos.ContactRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.annotation.PostConstruct;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+@AllArgsConstructor
+public class Application{
 
 
-    @Autowired
-    ContactRepository contactRepository;
+    private final ContactRepository contactRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
+    @PostConstruct
+    public void run() throws Exception {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         contactRepository.save(new Contact("AVAHOUN", "Constant", dateFormat.parse("05/11/1960"), "constanttessi@gmail.com", 97818403L, "photo.JPEG"));
         contactRepository.save(new Contact("AVAHOUN", "Josephine", dateFormat.parse("05/11/1940"), "josephine@gmail.com", 9324281803L, "photo.JPEG"));

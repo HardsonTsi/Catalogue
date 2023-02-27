@@ -1,8 +1,7 @@
 package com.Hardtech.net.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -10,27 +9,29 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Data
+@Getter
+@Setter
 @DynamicUpdate
 @NoArgsConstructor
 @AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Contact implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    Long Id;
 
-    private String nom;
+    String nom;
 
-    private String prenoms;
+    String prenoms;
 
     @Temporal(TemporalType.DATE)
-    private Date dateNaissance;
+    Date dateNaissance;
 
-    private String email;
+    String email;
 
-    private Long telephone;
-    private String photo;
+    Long telephone;
+    String photo;
 
     public Contact(String nom, String prenoms, Date dateNaissance, String email, Long telephone, String photo) {
         this.nom = nom;
@@ -39,11 +40,6 @@ public class Contact implements Serializable {
         this.email = email;
         this.telephone = telephone;
         this.photo = photo;
-    }
-
-    public Contact(Long telephone, String nom) {
-        this.telephone = telephone;
-        this.nom = nom;
     }
 
 }
